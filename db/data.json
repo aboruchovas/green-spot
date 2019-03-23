@@ -1,0 +1,18 @@
+{
+  "records": [
+    {
+      "id": 1,
+      "username": "arnas",
+      "password": "123",
+      "displayName": "Arnas",
+      "email": "arnas@example.com"
+    },
+    {
+      "id": 2,
+      "username": "greg",
+      "password": "123",
+      "displayName": "Greg",
+      "email": "greg@example.com"
+    }
+  ]
+}

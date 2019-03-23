@@ -1,4 +1,5 @@
 var express = require('express');
+var db = require('../db');
 var router = express.Router();
 
 module.exports = function(passport) {
@@ -7,14 +8,22 @@ module.exports = function(passport) {
   });
     
   router.post('/login', passport.authenticate('local', {
-    failureRedirect: '/login'
-  }), function(req, res) {
-    res.redirect('/');
-  });
+    failureRedirect: '/user/login',
+    successRedirect: '/'
+  }));
     
   router.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/');
+  });
+
+  router.get('/signup', function(req, res) {
+    res.render('signup', { title: 'Sign up', user: req.user || null });
+  });
+
+  router.post('/signup', function(req, res) {
+    db.users.createUser(req.body.username, req.body.name, req.body.email, req.body.password);
+    res.render('signup', { title: 'Sign up', user: req.user || null });
   });
   
   router.get('/profile', require('connect-ensure-login').ensureLoggedIn(), function(req, res) {

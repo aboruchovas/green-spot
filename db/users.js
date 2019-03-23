@@ -1,7 +1,19 @@
-var records = [
-    { id: 1, username: 'arnas', password: '123', displayName: 'Arnas', emails: [ { value: 'arnas@example.com' } ] }
-  , { id: 2, username: 'greg', password: '123', displayName: 'Greg', emails: [ { value: 'greg@example.com' } ] }
-];
+const fs = require('fs');
+const file = require('path').resolve(__dirname, 'data.json');
+
+let rawData = fs.readFileSync(file);
+let records = JSON.parse(rawData).records;
+console.log(records);
+
+function saveData() {
+  const dataToSave = JSON.stringify({ records }, null, 2);
+  fs.writeFileSync(file, dataToSave);
+}
+
+// var records = [
+//   { id: 1, username: 'arnas', password: '123', displayName: 'Arnas', email: 'arnas@example.com' },
+//   { id: 2, username: 'greg', password: '123', displayName: 'Greg', email: 'greg@example.com' }
+// ];
 
 exports.findById = function(id, callback) {
   process.nextTick(function() {
@@ -24,4 +36,21 @@ exports.findByUsername = function(username, callback) {
     }
     return callback(null, null);
   });
+}
+
+exports.createUser = function(username, displayName, email, password) {
+  process.nextTick(function() {
+    var unique = true;
+    records.forEach(user => {
+      if (user.username == username || user.email == email) {
+        unique = false;
+      }
+    });
+    if (unique) {
+      records.push({
+        id: records.length + 1, username, displayName, email, password
+      })
+      saveData();
+    }
+  })
 }
