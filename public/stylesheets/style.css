@@ -1,8 +1,11 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+.navbar {
+  z-index: 1; }
 
-a {
-  color: #00B7FF; }
+.mapboxgl-ctrl-top-right {
+  top: 60px; }
+
+#map {
+  top: 0;
+  z-index: 0; }
 
 /*# sourceMappingURL=style.css.map */
