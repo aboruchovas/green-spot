@@ -28,7 +28,8 @@ var picnicSpots = `[
 router.get('/', function(req, res, next) {
   res.render('index', { 
     title: 'GreenSpot',
-    picnicSpots
+    picnicSpots,
+    user: req.user || null
   });
 });
 

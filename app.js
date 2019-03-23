@@ -4,11 +4,35 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var sassMiddleware = require('node-sass-middleware');
+var passport = require('passport');
+var Strategy = require('passport-local').Strategy;
+var db = require('./db');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+var userRouter = require('./routes/user')(passport);
 
 var app = express();
+
+passport.use(new Strategy(
+  function(username, password, callback) {
+    db.users.findByUsername(username, function(err, user) {
+      if (err) { return callback(err); }
+      if (!user) { return callback(null, false); }
+      if (user.password != password) { return callback(null, false); }
+      return callback(null, user);
+    });
+  }));
+
+passport.serializeUser(function(user, callback) {
+  callback(null, user.id);
+});
+
+passport.deserializeUser(function(id, callback) {
+  db.users.findById(id, function (err, user) {
+    if (err) { return callback(err); }
+    callback(null, user);
+  });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -25,9 +49,17 @@ app.use(sassMiddleware({
   sourceMap: true
 }));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(require('body-parser').urlencoded({ extended: true }));
+app.use(require('express-session')({
+  secret: 'keyboard cat',
+  resave: true,
+  saveUninitialized: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/user', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

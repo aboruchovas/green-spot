@@ -9,7 +9,7 @@
 .mapboxgl-popup-content {
   text-align: center;
   font-size: 1.25em;
-  color: yellow; }
+  color: #f4c242; }
 
 #map {
   top: 0;
