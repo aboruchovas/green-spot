@@ -1,11 +1,24 @@
 .navbar {
-  z-index: 1; }
+  z-index: 1;
+  border-width: 5px !important;
+  border-color: #65bda9 !important; }
 
 .mapboxgl-ctrl-top-right {
   top: 60px; }
 
+.mapboxgl-popup-content {
+  text-align: center;
+  font-size: 1.25em;
+  color: yellow; }
+
 #map {
   top: 0;
   z-index: 0; }
+
+#marker {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

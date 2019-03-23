@@ -7,9 +7,22 @@ var map = new mapboxgl.Map({
 });
 
 picnicSpots.forEach(spot => {
-  var marker = new mapboxgl.Marker()
+  var marker = new mapboxgl.Marker({ color: '#2e9b63' })
   .setLngLat(spot.location)
   .addTo(map);
+
+  var popup = new mapboxgl.Popup({ offset: 25 })
+  .setText('★'.repeat(spot.rating) + '☆'.repeat((5-spot.rating)));
+  
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat(spot.location)
+    .setPopup(popup) // sets a popup on this marker
+    .addTo(map);
 });
 
 // Add geolocate control to the map.
