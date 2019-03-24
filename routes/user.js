@@ -24,7 +24,7 @@ module.exports = function(passport) {
 
   router.post('/signup', function(req, res) {
     db.users.createUser(req.body.username, req.body.name, req.body.email, req.body.password);
-    res.render('signup', { title: 'Sign up', user: req.user || null });
+    res.redirect('/user/login');
   });
   
   router.get('/profile', ensure.ensureLoggedIn(), function(req, res) {
