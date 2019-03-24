@@ -62,6 +62,21 @@ setTimeout(function() {
   geolocate.trigger();
 }, 0);
 
+picnicSpots.forEach(spot => {
+  var marker = new mapboxgl.Marker({ color: '#2e9b63' })
+  .setLngLat(spot.location)
+  .addTo(map);
+  
+  // create DOM element for the marker
+  var el = document.createElement('div');
+  el.id = 'marker';
+  
+  // create the marker
+  new mapboxgl.Marker(el)
+    .setLngLat(spot.location)
+    .addTo(map);
+});
+
 var draggableMarker = new mapboxgl.Marker({
   draggable: true
 }).setLngLat([0, 0]).addTo(map);
@@ -76,5 +91,4 @@ function selectSpot()  {
   document.getElementById('form-wrapper').style.display = 'block';
   document.getElementById('longitude').value = coords.lng.toFixed(7);
   document.getElementById('latitude').value = coords.lat.toFixed(7);
-
 }

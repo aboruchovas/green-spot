@@ -3,7 +3,7 @@ var map = new mapboxgl.Map({
   container: 'map', // container id
   style: 'mapbox://styles/mapbox/streets-v11', // stylesheet location
   center: [0, 0],
-  zoom: 2 // starting zoom
+  zoom: 5 // starting zoom
 });
 
 map.on('load', function() {
@@ -45,13 +45,20 @@ map.on('load', function() {
   }, labelLayerId);
 });
 
-picnicSpots.forEach(spot => {
+picnicSpots.forEach((spot, index) => {
   var marker = new mapboxgl.Marker({ color: '#2e9b63' })
   .setLngLat(spot.location)
   .addTo(map);
 
   var popup = new mapboxgl.Popup({ offset: 25 })
-  .setText('★'.repeat(spot.rating) + '☆'.repeat((5-spot.rating)));
+    .setHTML(
+      `<h1 style="margin: 8px; font-size:1em;">
+        ${drawStars(averageRating(spot.reviews))}
+        <br><br>
+        ${spot.reviews.length} review(s)
+      </h1>
+      <button type="button" class="btn btn-secondary" data-toggle="modal" data-spot="${index}" data-target="#spot-modal">View spot</button>`
+  );
   
   // create DOM element for the marker
   var el = document.createElement('div');
@@ -80,3 +87,45 @@ map.addControl(geolocate);
 setTimeout(function() {
   geolocate.trigger();
 }, 0);
+
+var spotCoords;
+var spotID;
+setTimeout(function() {
+  $('#spot-modal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var spotIndex = button.data('spot') // Extract info from data-* attributes
+    var modal = $(this)
+    var spot = picnicSpots[spotIndex];
+    spotCoords = spot.location;
+    spotID = spot.id;
+    modal.find('.modal-title').text(drawStars(averageRating(spot.reviews)));
+    var reviews = '';
+    spot.reviews.forEach(review => {
+      reviews += `<li class="list-group-item">
+        <span class="float-right">${drawStars(review.rating)}</span>
+        <h5>${review.user}</h5>
+        <p>${review.review}</p>
+      </li>\n`
+    })
+    modal.find('.modal-body').html(`
+      <ul class="list-group list-group-flush">
+        ${reviews}
+      </ul>
+    `)
+  })
+}, 500);
+
+function selectSpot()  {
+  // var coords = draggableMarker.getLngLat();
+  document.getElementById('map-wrapper').style.display = 'none';
+  document.getElementById('form-wrapper').style.display = 'block';
+  document.getElementById('spotID').value = spotID;
+}
+
+function averageRating(array) {
+  return Math.round(array.reduce((total, elem) => total + elem.rating, 0) / array.length);
+}
+
+function drawStars(numStars) {
+  return  '★'.repeat(numStars) + '☆'.repeat((5-numStars));
+}

@@ -12,11 +12,23 @@ function saveData() {
 exports.createSpot = function(longitude, latitude, rating, review, user, date) {
   process.nextTick(function() {
     spots.push({
-        reviews:  [
-            { user, rating, review, date }
-        ],
-        location: [longitude, latitude]
+      id: spots.length+1,
+      reviews:  [
+        { user, rating, review, date }
+      ],
+      location: [longitude, latitude]
     })
+    saveData();
+  })
+}
+
+exports.addReview = function(spotID, rating, review, user, date) {
+  process.nextTick(function() {
+    spots.forEach(spot => {
+      if (spot.id == spotID) {
+        spot.reviews.push({ user, rating, review, date });
+      }
+    });
     saveData();
   })
 }

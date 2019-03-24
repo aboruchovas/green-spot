@@ -1,9 +1,55 @@
 <%- include partials/header.ejs %>
 <%- include partials/navbar.ejs %>
-  <div id="map" class="position-absolute vw-100 vh-100"></div>
-  <pre id='coordinates' class='coordinates'></pre>
-  <script>
-    var picnicSpots = <%- picnicSpots %>;
-  </script>
-  <script src="/javascripts/index.js"></script>
+  <div id="map-wrapper">
+    <div id="map" class="position-absolute vw-100 vh-100"></div>
+      <!-- Modal -->
+      <div class="modal fade" id="spot-modal" tabindex="-1" role="dialog" aria-labelledby="spotModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="spotModalCenterTitle"></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0"></div>
+          <div class="modal-footer">
+            <% if (user) {%>
+              <button type="button" class="btn btn-secondary" onclick="selectSpot()" data-dismiss="modal">Add a review</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <% } else { %>
+              <a class="btn btn-secondary" href="/user/login">Add a review</a>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="form-wrapper">
+    <div class="container py-4 mt-5 pt-5 text-center">
+      <h1>Spot info</h1>
+      <div class="row justify-content-center mt-4">
+        <div class="col-4 ">
+          <form action="/review" method="post">
+            <input type="hidden" id="spotID" name="spotID" required>
+            <div class="form-group">
+              <input type="range" min="0" max="5" class="form-control" name="rating" id="rating" placeholder="Rating" required>
+            </div>
+            <div class="form-group">
+              <textarea maxlength="100" class="form-control" name="review" id="review" placeholder="Review" required></textarea>
+            </div>
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script>
+      var picnicSpots = <%- picnicSpots %>;
+    </script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="/javascripts/index.js"></script>
 <%- include partials/footer.ejs %>

@@ -1,6 +1,7 @@
 {
   "spots": [
     {
+      "id": 1,
       "reviews": [
         {
           "user": "bob",
@@ -15,6 +16,7 @@
       ]
     },
     {
+      "id": 2,
       "reviews": [
         {
           "user": "arnas",
@@ -29,6 +31,7 @@
       ]
     },
     {
+      "id": 3,
       "reviews": [
         {
           "user": "greg",
@@ -43,12 +46,19 @@
       ]
     },
     {
+      "id": 4,
       "reviews": [
         {
           "user": "steve",
           "rating": 4,
           "review": "very good",
           "date": 12345678
+        },
+        {
+          "user": "greg",
+          "rating": 1,
+          "review": "jhcc",
+          "date": 1553422958192
         }
       ],
       "location": [
@@ -57,36 +67,99 @@
       ]
     },
     {
+      "id": 5,
       "reviews": [
         {
-          "rating": "3",
-          "review": "uyfkyfk",
-          "date": 1553394397289
+          "user": "arnas",
+          "rating": 4,
+          "review": "so good",
+          "date": 1553396532683
         }
       ],
       "location": [
-        "-0.6050307",
-        "44.8064004"
+        -0.6018438,
+        44.7987807
       ]
     },
     {
+      "id": 6,
       "reviews": [
         {
-          "user": {
-            "id": 2,
-            "username": "greg",
-            "password": "123",
-            "displayName": "Greg",
-            "email": "greg@example.com"
-          },
-          "rating": "3",
-          "review": ",ukyf",
-          "date": 1553394426110
+          "user": "bob",
+          "rating": 3,
+          "review": "lovely views, perfect to sit down",
+          "date": 1553409320502
         }
       ],
       "location": [
-        "-0.5972630",
-        "44.8092169"
+        -0.5985258,
+        44.8001901
+      ]
+    },
+    {
+      "id": 7,
+      "reviews": [
+        {
+          "user": "bob",
+          "rating": 4,
+          "review": "good view of a lake",
+          "date": 1553410006451
+        }
+      ],
+      "location": [
+        -0.5937872,
+        44.8084203
+      ]
+    },
+    {
+      "id": 8,
+      "reviews": [
+        {
+          "user": "arnas",
+          "rating": 4,
+          "review": "cool place",
+          "date": 1553424028849
+        }
+      ],
+      "location": [
+        "-0.5905264",
+        "44.8069665"
+      ]
+    },
+    {
+      "id": 9,
+      "reviews": [
+        {
+          "user": "arnas",
+          "rating": 2,
+          "review": "not so nice",
+          "date": 1553424055246
+        },
+        {
+          "user": "arnas",
+          "rating": 5,
+          "review": "amazing",
+          "date": 1553424122068
+        }
+      ],
+      "location": [
+        "-0.6036117",
+        "44.8024857"
+      ]
+    },
+    {
+      "id": 10,
+      "reviews": [
+        {
+          "user": "arnas",
+          "rating": 0,
+          "review": "awful",
+          "date": 1553424078945
+        }
+      ],
+      "location": [
+        "-0.5962625",
+        "44.8048394"
       ]
     }
   ]
