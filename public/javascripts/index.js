@@ -127,5 +127,6 @@ function averageRating(array) {
 }
 
 function drawStars(numStars) {
+  numStars = parseInt(numStars);
   return  '★'.repeat(numStars) + '☆'.repeat((5-numStars));
 }

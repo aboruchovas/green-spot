@@ -1,15 +1,15 @@
 const fs = require('fs');
-// const file = require('path').resolve(__dirname, 'users.json');
-const file = require('path').resolve(require('os').tmpdir(), 'users.json');
+const file = require('path').resolve(__dirname, 'users.json');
+// const file = require('path').resolve(require('os').tmpdir(), 'users.json');
 
-let rawData;
-try {
-  rawData = fs.readFileSync(file);
-} catch(err) {
-  rawData = '{ "records": [] }';
-}
+// let rawData;
+// try {
+//   rawData = fs.readFileSync(file);
+// } catch(err) {
+//   rawData = '{ "records": [] }';
+// }
 
-// let rawData = fs.readFileSync(file);
+let rawData = fs.readFileSync(file);
 let records = JSON.parse(rawData).records;
 
 function saveData() {
