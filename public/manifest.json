@@ -1,0 +1,9 @@
+{
+  "short_name": "GreenSpot",
+  "name": "GreenSpot",
+  "start_url": "/",
+  "background_color": "#75C3AD",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#75C3AD"
+}
