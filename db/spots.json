@@ -1,0 +1,93 @@
+{
+  "spots": [
+    {
+      "reviews": [
+        {
+          "user": "bob",
+          "rating": 0,
+          "review": "very bad",
+          "date": 12345678
+        }
+      ],
+      "location": [
+        -0.6051667,
+        44.8066366
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "user": "arnas",
+          "rating": 3,
+          "review": "okay",
+          "date": 12345678
+        }
+      ],
+      "location": [
+        -0.6051667,
+        43.8066346
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "user": "greg",
+          "rating": 5,
+          "review": "the best",
+          "date": 12345678
+        }
+      ],
+      "location": [
+        -0.6051657,
+        44.8066376
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "user": "steve",
+          "rating": 4,
+          "review": "very good",
+          "date": 12345678
+        }
+      ],
+      "location": [
+        -0.6051661,
+        44.8066376
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "rating": "3",
+          "review": "uyfkyfk",
+          "date": 1553394397289
+        }
+      ],
+      "location": [
+        "-0.6050307",
+        "44.8064004"
+      ]
+    },
+    {
+      "reviews": [
+        {
+          "user": {
+            "id": 2,
+            "username": "greg",
+            "password": "123",
+            "displayName": "Greg",
+            "email": "greg@example.com"
+          },
+          "rating": "3",
+          "review": ",ukyf",
+          "date": 1553394426110
+        }
+      ],
+      "location": [
+        "-0.5972630",
+        "44.8092169"
+      ]
+    }
+  ]
+}

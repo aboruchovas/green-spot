@@ -1,6 +1,7 @@
 var express = require('express');
 var db = require('../db');
 var router = express.Router();
+var ensure = require('connect-ensure-login');
 
 module.exports = function(passport) {
   router.get('/login', function(req, res) {
@@ -26,7 +27,7 @@ module.exports = function(passport) {
     res.render('signup', { title: 'Sign up', user: req.user || null });
   });
   
-  router.get('/profile', require('connect-ensure-login').ensureLoggedIn(), function(req, res) {
+  router.get('/profile', ensure.ensureLoggedIn(), function(req, res) {
     res.render('profile', { user: req.user || null });
   });
 

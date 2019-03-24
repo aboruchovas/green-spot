@@ -1,9 +1,8 @@
 const fs = require('fs');
-const file = require('path').resolve(__dirname, 'data.json');
+const file = require('path').resolve(__dirname, 'users.json');
 
 let rawData = fs.readFileSync(file);
 let records = JSON.parse(rawData).records;
-console.log(records);
 
 function saveData() {
   const dataToSave = JSON.stringify({ records }, null, 2);
