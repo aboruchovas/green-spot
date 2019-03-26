@@ -22,7 +22,7 @@ exports.createSpot = function(longitude, latitude, rating, review, user, date) {
     spots.push({
       id: spots.length+1,
       reviews:  [
-        { user, rating, review, date }
+        { user, rating: parseInt(rating), review, date }
       ],
       location: [longitude, latitude]
     })
