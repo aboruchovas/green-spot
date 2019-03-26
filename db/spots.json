@@ -173,7 +173,7 @@
       "reviews": [
         {
           "user": "bob",
-          "rating": "5",
+          "rating": 5,
           "review": "amazing place",
           "date": 1553433540427
         }
@@ -188,7 +188,7 @@
       "reviews": [
         {
           "user": "arnas",
-          "rating": "0",
+          "rating": 0,
           "review": "SHIT HOLE XXXX",
           "date": 1553437053549
         }
@@ -196,6 +196,102 @@
       "location": [
         "-1.5031988",
         "53.3753732"
+      ]
+    },
+    {
+      "id": 13,
+      "reviews": [
+        {
+          "user": "dentistry_gorl",
+          "rating": 3,
+          "review": "A peng-a-ling spot xox",
+          "date": 1553460734440
+        },
+        {
+          "user": "arnas",
+          "rating": 5,
+          "review": "a more appropriate rating :)",
+          "date": 1553460854113
+        }
+      ],
+      "location": [
+        "0.4703588",
+        "52.1089154"
+      ]
+    },
+    {
+      "id": 14,
+      "reviews": [
+        {
+          "user": "dentistry_gorl",
+          "rating": 5,
+          "review": "Decent but windy ",
+          "date": 1553462170907
+        }
+      ],
+      "location": [
+        "-2.9033934",
+        "57.6982445"
+      ]
+    },
+    {
+      "id": 15,
+      "reviews": [
+        {
+          "user": "arnas",
+          "rating": 5,
+          "review": "very nice",
+          "date": 1553550514384
+        }
+      ],
+      "location": [
+        "-1.4994765",
+        "53.3717701"
+      ]
+    },
+    {
+      "id": 16,
+      "reviews": [
+        {
+          "user": "picnicbeast3000",
+          "rating": 0,
+          "review": "shit hole",
+          "date": 1553550654977
+        }
+      ],
+      "location": [
+        "-2.7482671",
+        "53.3808039"
+      ]
+    },
+    {
+      "id": 17,
+      "reviews": [
+        {
+          "user": "zoe",
+          "rating": 5,
+          "review": "AMAZING",
+          "date": 1553551587004
+        }
+      ],
+      "location": [
+        "-1.4939773",
+        "53.3820392"
+      ]
+    },
+    {
+      "id": 18,
+      "reviews": [
+        {
+          "user": "ramani",
+          "rating": 5,
+          "review": "dfgdfgdfgd",
+          "date": 1553553556408
+        }
+      ],
+      "location": [
+        "-1.3863908",
+        "53.8370987"
       ]
     }
   ]
